@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "reason": "Inter is the intentional brand font for PaperWorkz, confirmed in project CSS",
+        "createdAt": "2026-08-19T10:38:29.365Z"
+      }
+    ]
+  }
+}
