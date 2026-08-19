@@ -1,6 +1,15 @@
 const express = require("express");
 const app = express();
 
+// ── CORS — must come before all routes and body parsers ───────────────────
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Accept");
+  if (req.method === "OPTIONS") return res.sendStatus(204);
+  next();
+});
+
 // Parse raw HTML bodies for the html-to-pdf text input path
 app.use(express.text({ type: "text/html", limit: "10mb" }));
 app.use(express.json());

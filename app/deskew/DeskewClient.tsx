@@ -81,7 +81,7 @@ export default function DeskewClient() {
           <div style={{ width: 40, height: 48, background: "#fff0f1", borderRadius: 6, display: "grid", placeItems: "center", flexShrink: 0, fontSize: 12, fontWeight: 800, color: RED }}>PDF</div>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontWeight: 600, fontSize: 14, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{file?.name}</div>
-            <div style={{ fontSize: 12, color: MUTED, marginTop: 2 }}>{file ? `${(file.size / 1024 / 1024).toFixed(2)} MB` : ""}</div>
+            <div style={{ fontSize: 12, color: MUTED, marginTop: 2 }}>{file ? (file.size < 1048576 ? `${(file.size / 1024).toFixed(0)} KB` : `${(file.size / 1024 / 1024).toFixed(1)} MB`) : ""}</div>
           </div>
           <button onClick={reset} style={{ border: "none", background: "none", fontSize: 18, color: MUTED, cursor: "pointer", padding: "4px 8px" }}>×</button>
         </div>
