@@ -47,16 +47,15 @@ router.post("/", upload.single("file"), async (req, res) => {
       deskewedFiles.push(outPath);
     }
 
-    // Step 3: Combine deskewed images back into a PDF with Ghostscript
+    // Step 3: Combine deskewed images into a PDF with ImageMagick
+    // (Ghostscript cannot read raw PPM files produced by pdftoppm)
     const outPath = path.join(tmp, "deskewed.pdf");
-    await run("gs", [
-      "-sDEVICE=pdfwrite",
-      "-dCompatibilityLevel=1.4",
-      "-dNOPAUSE",
-      "-dQUIET",
-      "-dBATCH",
-      `-sOutputFile=${outPath}`,
+    await run("convert", [
+      "-density", String(dpi),
+      "-compress", "jpeg",
+      "-quality", "92",
       ...deskewedFiles,
+      outPath,
     ], 180_000);
 
     const baseName = path.basename(req.file.originalname, ".pdf");

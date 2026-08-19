@@ -143,13 +143,13 @@ export default function Home() {
           </div>
           <div className="grid">
             <Card icon="PDF" title="PDF Editor" desc="Edit text, add links, images and shapes, annotate, fill and sign PDFs." href="/edit" />
-            <Card icon="&#x2193;" title="Compress PDF" desc="Reduce PDF file size while keeping documents readable and professional." />
+            <Card icon="&#x2193;" title="Compress PDF" desc="Reduce PDF file size while keeping documents readable and professional." href="/compress" />
             <Card icon="&#xD7;" title="Delete Pages" desc="Remove unwanted pages from a PDF document." href="/delete-pages" />
             <Card icon="&#xFF0B;" title="Merge PDF" desc="Combine multiple PDFs and images into one document." href="/merge" />
             <Card icon="&#x2197;" title="Split PDF" desc="Split page ranges or extract every page into separate files." href="/split" />
             <Card icon="&#x2317;" title="Crop PDF" desc="Trim PDF margins and change page size." href="/crop" />
             <Card icon="&#x2713;" title="Fill & Sign" desc="Add signatures and fill out PDF forms digitally." href="/edit/annotate" />
-            <Card icon="DOC" title="PDF to Word" desc="Convert PDF files into editable Word documents." />
+            <Card icon="DOC" title="PDF to Word" desc="Convert PDF files into editable Word documents." href="/pdf-to-word" />
             <Card icon="&#x25A3;" title="Extract Pages" desc="Create a new document containing only the pages you need." href="/extract-pages" />
           </div>
         </div>
@@ -201,8 +201,8 @@ export default function Home() {
           </div>
           <div className="grid">
             <Card icon="&#x2193;" title="Compress" desc="Reduce document size for easier sharing and storage." />
-            <Card icon="&#x2194;" title="Deskew" desc="Automatically straighten tilted scanned PDF pages." />
-            <Card icon="OCR" title="OCR" desc="Convert scans into searchable PDFs and extract their text." />
+            <Card icon="&#x2194;" title="Deskew" desc="Automatically straighten tilted scanned PDF pages." href="/deskew" />
+            <Card icon="OCR" title="OCR" desc="Convert scans into searchable PDFs and extract their text." href="/ocr" />
           </div>
         </div>
 
@@ -212,8 +212,8 @@ export default function Home() {
             <span>Protect sensitive documents</span>
           </div>
           <div className="grid">
-            <Card icon="&#x2311;" title="Protect PDF" desc="Add passwords and control document permissions." />
-            <Card icon="&#x232B;" title="Unlock PDF" desc="Remove supported restrictions and passwords." />
+            <Card icon="&#x2311;" title="Protect PDF" desc="Add passwords and control document permissions." href="/protect-pdf" />
+            <Card icon="&#x232B;" title="Unlock PDF" desc="Remove supported restrictions and passwords." href="/unlock-pdf" />
             <Card icon="W" title="Watermark" desc="Add text or image watermarks to documents." />
             <Card icon="&#x25A3;" title="Flatten" desc="Make fillable PDFs read-only for final distribution." />
           </div>
@@ -225,11 +225,11 @@ export default function Home() {
             <span>Turn PDFs into editable formats</span>
           </div>
           <div className="grid">
-            <Card icon="XLS" title="PDF to Excel" desc="Extract tables from PDFs into Excel or CSV." />
+            <Card icon="XLS" title="PDF to Excel" desc="Extract tables from PDFs into Excel or CSV." href="/pdf-to-excel" />
             <Card icon="IMG" title="PDF to JPG" desc="Convert PDF pages into JPG, PNG or TIFF images." href="/pdf-to-jpg" />
-            <Card icon="PPT" title="PDF to PPT" desc="Convert PDFs into editable PowerPoint presentations." />
-            <Card icon="TXT" title="PDF to Text" desc="Extract all text into a separate text file." />
-            <Card icon="DOC" title="PDF to Word" desc="Convert PDF files into editable DOCX documents." />
+            <Card icon="PPT" title="PDF to PPT" desc="Convert PDFs into editable PowerPoint presentations." href="/pdf-to-ppt" />
+            <Card icon="TXT" title="PDF to Text" desc="Extract all text into a separate text file." href="/pdf-to-text" />
+            <Card icon="DOC" title="PDF to Word" desc="Convert PDF files into editable DOCX documents." href="/pdf-to-word" />
           </div>
         </div>
 
@@ -239,11 +239,11 @@ export default function Home() {
             <span>Create PDFs from almost anything</span>
           </div>
           <div className="grid">
-            <Card icon="WEB" title="HTML to PDF" desc="Convert web pages and HTML files into PDFs." />
+            <Card icon="WEB" title="HTML to PDF" desc="Convert web pages and HTML files into PDFs." href="/html-to-pdf" />
             <Card icon="IMG" title="JPG to PDF" desc="Turn images into clean PDF documents." href="/jpg-to-pdf" />
-            <Card icon="DOC" title="Word to PDF" desc="Create PDFs from Microsoft Word documents." />
-            <Card icon="XLS" title="Excel to PDF" desc="Export spreadsheets into polished PDFs." />
-            <Card icon="PPT" title="Presentation to PDF" desc="Turn PowerPoint presentations into PDF files." />
+            <Card icon="DOC" title="Word to PDF" desc="Create PDFs from Microsoft Word documents." href="/office-to-pdf" />
+            <Card icon="XLS" title="Excel to PDF" desc="Export spreadsheets into polished PDFs." href="/office-to-pdf" />
+            <Card icon="PPT" title="Presentation to PDF" desc="Turn PowerPoint presentations into PDF files." href="/office-to-pdf" />
           </div>
         </div>
 
@@ -272,14 +272,14 @@ export default function Home() {
             <Card icon="&#x1F516;" title="Create Bookmarks" desc="Add and manage PDF bookmarks for easier navigation." />
             <Card icon="&#x2317;" title="Crop" desc="Trim margins and change PDF page size." href="/crop" />
             <Card icon="META" title="Edit Metadata" desc="Change author, title, keywords, subject and metadata fields." href="/edit-metadata" />
-            <Card icon="IMG" title="Extract Images" desc="Pull images out of PDF documents." />
+            <Card icon="IMG" title="Extract Images" desc="Pull images out of PDF documents." href="/extract-images" />
             <Card icon="&#x2194;" title="Flip" desc="Mirror pages horizontally or vertically." href="/flip" />
-            <Card icon="G" title="Grayscale" desc="Convert PDF text and images to grayscale." />
+            <Card icon="G" title="Grayscale" desc="Convert PDF text and images to grayscale." href="/grayscale" />
             <Card icon="H" title="Header & Footer" desc="Apply page numbers and text labels to PDF pages." href="/header-footer" />
             <Card icon="N" title="N-up" desc="Place multiple PDF pages on a single sheet." href="/n-up" />
             <Card icon="#" title="Page Numbers" desc="Add page numbers to your PDF." href="/page-numbers" />
             <Card icon="&#x21BB;" title="Rename" desc="Rename documents based on content from their pages." href="/rename" />
-            <Card icon="&#x2699;" title="Repair PDF" desc="Recover data from corrupted or damaged PDF files." />
+            <Card icon="&#x2699;" title="Repair PDF" desc="Recover data from corrupted or damaged PDF files." href="/repair" />
             <Card icon="&#x2195;" title="Resize" desc="Add margins, padding or change PDF page size." href="/resize" />
             <Card icon="&#x27F3;" title="Rotate" desc="Rotate PDF pages and save the changes permanently." href="/rotate" />
             <Card icon="&#x232B;" title="Remove Annotations" desc="Batch remove highlights, strikeouts and other annotations." href="/remove-annotations" />
