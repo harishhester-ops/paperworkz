@@ -16,6 +16,7 @@ const DL = path.join(__dirname, "test-downloads-server");
 mkdirSync(DL, { recursive: true });
 
 const PDF = path.join(__dirname, "public", "test.pdf");
+const PDF_TEXT = path.join(__dirname, "public", "test-text.pdf"); // PDF with selectable text, for text/OCR tests
 
 let pass = 0, fail = 0;
 const ok  = (label) => { console.log(`  ✅ ${label}`); pass++; };
@@ -204,7 +205,7 @@ function postFileLong(endpoint, filePath, extra = {}, outName) {
 async function testOcr() {
   console.log("\n── 6. OCR ──────────────────────────────────────────────────────");
   try {
-    const { buf, filename } = await postFileLong("/api/ocr", PDF, { lang: "eng", dpi: "150" }, "ocr.pdf");
+    const { buf, filename } = await postFileLong("/api/ocr", PDF_TEXT, { lang: "eng", dpi: "150" }, "ocr.pdf");
     isPdf(buf) ? ok(`Output is searchable PDF → ${filename} (${(buf.length/1024).toFixed(0)} KB)`) : no("Not a PDF");
   } catch (e) { no("ocr", e.message); }
 }
@@ -216,11 +217,11 @@ async function testPdfConvert() {
     { ep: "/api/convert/word", out: "output.docx", check: isOffice, label: "PDF to Word" },
     { ep: "/api/convert/excel", out: "output.xlsx", check: isOffice, label: "PDF to Excel" },
     { ep: "/api/convert/ppt",  out: "output.pptx", check: isOffice, label: "PDF to PPT" },
-    { ep: "/api/convert/text", out: "output.txt",  check: (b) => b.length > 0, label: "PDF to Text" },
+    { ep: "/api/convert/text", out: "output.txt",  file: PDF_TEXT, check: (b) => b.length > 0, label: "PDF to Text" },
   ];
-  for (const { ep, out, check, label } of cases) {
+  for (const { ep, out, file: testFile, check, label } of cases) {
     try {
-      const { buf, filename } = await postFile(ep, PDF, {}, out);
+      const { buf, filename } = await postFile(ep, testFile ?? PDF, {}, out);
       check(buf) ? ok(`${label} → ${filename} (${(buf.length/1024).toFixed(0)} KB)`) : no(`${label} — unexpected output format`);
     } catch (e) { no(label, e.message); }
   }
